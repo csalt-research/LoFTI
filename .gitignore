@@ -2,3 +2,4 @@
 __pycache__/
 llama.cpp
 */api.py
+outputs/*

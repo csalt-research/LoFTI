@@ -60,7 +60,6 @@ if __name__ == "__main__":
     # data = load_dataset("sonasimon/LoFTI", split='test')
     # Or load the local file
     data = load_dataset('json', data_files={'test': 'dataset/LoFTI.jsonl'}, split='test')
-    print(data)
 
     # get generation from an LLM
     llm_generation(data, args.model, args.prompt_format, args.output_path)

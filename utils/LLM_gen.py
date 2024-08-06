@@ -4,6 +4,7 @@ from llama_cpp import Llama
 from prompts import llm_prompts
 from utils import api, openai_gen
 import openai
+openai.api_key  = api.OPENAI_KEY
 
 def parse_llm_response(response: str):
     """Extract target sentence from the LLM response.
@@ -41,30 +42,37 @@ def run_target_claim_generation(
         target sentence and reason
     """
 
-    if(model in openai.Model.list()['data']): # for all openai model
-        prompt_ = getattr(llm_prompts, prompt)
-        llm_input = prompt_.format(claim=claim, location=location)
+    openai_models = [model.id for model in openai.models.list().data]
+    if(model in openai_models and prompt_format == 'gpt'): # for all openai model
+        print("Loading model ... ", model)
+        prompt = getattr(llm_prompts, prompt)
+        llm_input = prompt.format(claim=claim, location=location)
         response = openai_gen.openai_model(llm_input, model, api.OPENAI_KEY)
     else:
-        model = Llama(
-            model_path=model,  
-            n_ctx=32768,  # The max sequence length to use - note that longer sequence lengths require much more resources
-            n_threads=8,            # The number of CPU threads to use, tailor to your system and the resulting performance
-            n_gpu_layers=35 ,        # The number of layers to offload to GPU, if you have GPU acceleration available
-            verbose=False
-            ) 
+        try:
+            llm = Llama(
+                model_path=model,  
+                n_ctx=32768,  # The max sequence length to use - note that longer sequence lengths require much more resources
+                n_threads=8,            # The number of CPU threads to use, tailor to your system and the resulting performance
+                n_gpu_layers=35 ,        # The number of layers to offload to GPU, if you have GPU acceleration available
+                verbose=False
+                ) 
+        except Exception as e:
+            print(e)
+
+        print("Loading model ... ", model)
         if(prompt_format == 'llama'):
             prompt = getattr(llm_prompts, prompt+"_llama")
             llm_input = prompt.format(location=location, claim=claim).strip()
-            output = model(llm_input, max_tokens=256)
+            output = llm(llm_input, max_tokens=256)
             response = output['choices'][0]['text']
         elif(prompt_format == 'mixtral'):
             prompt = getattr(llm_prompts, prompt+"_mixtral")
             llm_input = prompt.format(location=location, claim=claim).strip()
-            output = model(llm_input, max_tokens=256)
+            output = llm(llm_input, max_tokens=256)
             response = output['choices'][0]['text']
         else:
-            print("Model not found! Invalid model name.")
+            print("Invalid prompt format! Formats supported: 'llama', 'mixtral', 'gpt'.")
             exit()
    
     target_sent, reason = parse_llm_response(response.strip())
