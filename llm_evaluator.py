@@ -238,6 +238,8 @@ if __name__ == "__main__":
 
             output_list[id] = result
         
+        output_file = Path(args.output_path)
+        output_file.parent.mkdir(exist_ok=True, parents=True)
         with open(args.output_path, 'w', encoding='utf-8') as json_file:
             json.dump(output_list, json_file, indent=4, ensure_ascii=False)
 
