@@ -76,10 +76,9 @@ python3 localized_text_transfer.py --model model --prompt_format prompt_format -
 
 `output_path`: Output file path to a JSON file to store the generations.
 
-Example:
-``` manpage
+'''
 python3 localized_text_transfer.py --model gpt-3.5-turbo --prompt_format gpt --output_path outputs/TT_gpt3.5_generation.json
-```
+'''
 
 ### Localized Question Answering
 To do localized question answering for a given factual question and a target location on LoFTI dataset:
