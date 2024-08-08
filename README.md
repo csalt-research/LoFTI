@@ -68,7 +68,10 @@ pip install -r requirement.txt
 ### Localized Text Transfer
 To do localized text transfer from a reference sentence to a target location on LoFTI dataset:
 ```
-python3 localized_text_transfer.py --model model --prompt_format prompt_format --output_path output_path
+python3 localized_text_transfer.py \
+  --model model \
+  --prompt_format prompt_format \
+  --output_path output_path
 ```
 `model`: LLM model path (gguf format) or openai model names (like gpt-4-turbo).
 
@@ -76,14 +79,20 @@ python3 localized_text_transfer.py --model model --prompt_format prompt_format -
 
 `output_path`: Output file path to a JSON file to store the generations.
 
-'''
-python3 localized_text_transfer.py --model gpt-3.5-turbo --prompt_format gpt --output_path outputs/TT_gpt3.5_generation.json
-'''
+```
+python3 localized_text_transfer.py \
+  --model gpt-3.5-turbo \
+  --prompt_format gpt \
+  --output_path outputs/TT_gpt3.5_generation.json
+```
 
 ### Localized Question Answering
 To do localized question answering for a given factual question and a target location on LoFTI dataset:
-```python
-python3 localized_QA.py --model model --prompt_format prompt_format --output_path output_path
+```
+python3 localized_QA.py \
+  --model model \
+  --prompt_format prompt_format \
+  --output_path output_path
 ```
 `model`: LLM model path (gguf format) or openai model names (like gpt-4-turbo).
 
@@ -92,14 +101,22 @@ python3 localized_QA.py --model model --prompt_format prompt_format --output_pat
 `output_path`: Output file path to a JSON file to store the generations.
 
 Example:
-```python
-python3 localized_text_transfer.py --model gpt-3.5-turbo --prompt_format gpt --output_path outputs/QA_gpt3.5_generation.json
+```
+python3 localized_text_transfer.py \
+  --model gpt-3.5-turbo \
+  --prompt_format gpt \
+  --output_path outputs/QA_gpt3.5_generation.json
 ```
 
 ### LLM as a LoFTI Evaluator
 To evaluate the generations obtained for LoFTI using an LLMdo localized question answering for a given factual question and a target location on LoFTI dataset:
-```python
-python3 llm_evaluator.py --model model --eval_type eval_type --eval_json_file eval_json_file --eval_metric ['eval_metric1', 'eval_metric2'] --output_path output_path
+```
+python3 llm_evaluator.py \
+  --model model \
+  --eval_type eval_type \
+  --eval_json_file eval_json_file \
+  --eval_metric ['eval_metric1', 'eval_metric2'] \
+  --output_path output_path
 ```
 
 - `model`: Openai model names (like gpt-4-turbo).
@@ -114,7 +131,12 @@ python3 llm_evaluator.py --model model --eval_type eval_type --eval_json_file ev
 
 Example:
 ```
-python3 llm_evaluator.py --model gpt-4-turbo --eval_type TT --eval_json_file outputs/TT_gpt3.5_generation.json --eval_metric ['EC', 'CQ', 'FC'] --output_path outputs/TT_gpt3.5_gen_eval_gpt4_EC_CQ_FC.json
+python3 llm_evaluator.py \
+  --model gpt-4-turbo \
+  --eval_type TT \
+  --eval_json_file outputs/TT_gpt3.5_generation.json \
+  --eval_metric ['EC', 'CQ', 'FC'] \
+  --output_path outputs/TT_gpt3.5_gen_eval_gpt4_EC_CQ_FC.json
 ```
 
 ## Limitations
