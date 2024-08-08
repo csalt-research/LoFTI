@@ -48,7 +48,7 @@ def run_target_claim_generation(
 
     openai_models = [model.id for model in openai.models.list().data]
     if(model in openai_models and prompt_format == 'gpt'): # for all openai model
-        print("Loading model ... ", model)
+        print("Loading model ...", model)
         prompt = getattr(llm_prompts, prompt)
         llm_input = prompt.format(question=question, ref_location=ref_location, tar_location=tar_location, ref_claim=claim)
         response = openai_gen.openai_model(llm_input, model, api.OPENAI_KEY)
