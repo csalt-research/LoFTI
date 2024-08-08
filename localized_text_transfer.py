@@ -12,12 +12,14 @@ def get_llm_output(
     claim_id = sample["id"]
     claim = sample["reference_text"]
     hyperlocality = sample["hyperlocal_score"]
-    location = sample["target_location"]
+    ref_location = sample["reference_location"]
+    hyperlocality = sample["hyperlocal_score"]
+    tar_location = sample["target_location"]
     category = sample["category"]
     target_sent_prompt = "TARGET_SENT_GEN_PROMPT_WITH_LOCATION"
     target_sent, reason_for_target_sent = LLM_gen.run_target_claim_generation(
         claim=claim,
-        location=location,
+        location=tar_location,
         prompt=target_sent_prompt,
         model=model,
         prompt_format=prompt_format,
@@ -25,8 +27,9 @@ def get_llm_output(
     output = {
         "claim_id": claim_id,
         "category:": category,
+        "reference_location": ref_location,
         "reference_claim": claim,
-        "target_location": location,
+        "target_location": tar_location,
         "hyperlocal_score": hyperlocality,
         "model": model,
         "target_claim_gen": target_sent,
@@ -37,7 +40,7 @@ def get_llm_output(
 def llm_generation(data, model, prompt_format, output_path):
     outputs = []
     for sample in data:
-        print("Claim: ", sample["id"])
+        print("Processing claim: ", sample["id"])
         outputs.append(get_llm_output(sample, model, prompt_format))
         break
     # Dump the list into the JSON file

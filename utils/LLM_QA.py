@@ -1,4 +1,4 @@
-"""Utils for running llm text generation."""
+"""Utils for running llm question answering."""
 
 from llama_cpp import Llama
 from prompts import llm_prompts
@@ -26,15 +26,19 @@ def parse_llm_response(response: str):
 
 def run_target_claim_generation(
     claim: str,
-    location: str,
+    ref_location: str,
+    tar_location : str,
+    question: str,
     prompt: str,
     model: str,
     prompt_format: str,
     ):
-    """Generates target sentence based on target location and reference claim.
+    """Given a question, reference location and target location, generate a sentence in target location that answers the question.
     Args:
         claim: Reference claim
-        location: Target location
+        ref_location: Reference location
+        tar_location : Target location
+        question: Question to answer
         prompt: Prompt name
         model: LLM model
         prompt_format: Prompt format for the model
@@ -46,7 +50,7 @@ def run_target_claim_generation(
     if(model in openai_models and prompt_format == 'gpt'): # for all openai model
         print("Loading model ... ", model)
         prompt = getattr(llm_prompts, prompt)
-        llm_input = prompt.format(claim=claim, location=location)
+        llm_input = prompt.format(question=question, ref_location=ref_location, tar_location=tar_location, ref_claim=claim)
         response = openai_gen.openai_model(llm_input, model, api.OPENAI_KEY)
     else:
         try:
@@ -63,12 +67,12 @@ def run_target_claim_generation(
         print("Loading model ... ", model)
         if(prompt_format == 'llama'):
             prompt = getattr(llm_prompts, prompt+"_llama")
-            llm_input = prompt.format(location=location, claim=claim).strip()
+            llm_input = prompt.format(question=question, ref_location=ref_location, tar_location=tar_location, ref_claim=claim).strip()
             output = llm(llm_input, max_tokens=256)
             response = output['choices'][0]['text']
         elif(prompt_format == 'mixtral'):
             prompt = getattr(llm_prompts, prompt+"_mixtral")
-            llm_input = prompt.format(location=location, claim=claim).strip()
+            llm_input = prompt.format(question=question, ref_location=ref_location, tar_location=tar_location, ref_claim=claim).strip()
             output = llm(llm_input, max_tokens=256)
             response = output['choices'][0]['text']
         else:
