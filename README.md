@@ -11,13 +11,13 @@ It can be used as a benchmark to evaluate the capabilities of LLMs in the Indian
 <p align="center">
   <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/LoFTI_Illustration.png" width="500" alt>
   <p align="center">
-  <em>Illustrates the global distribution of the reference entities and the spread of target entities in India.</em>
+  <em> Illustration of LLM’s localized factual text transfer capabilities.</em>
   </p>
 </p>
 
 LoFTI dataset is available in [Hugging Face](https://huggingface.co/datasets/sonasimon/LoFTI).
 
-```
+```python
 from datasets import load_dataset
 
 # Load the dataset from Hugging Face
@@ -43,7 +43,9 @@ print(dataset['test'][0])
 ## Dataset Distribution
 <p align="center">
   <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/map.png">
-  <em>Illustrates the global distribution of the reference entities and the spread of target entities in India.</em>
+  <p align="center">
+    <em>The global distribution of the reference entities and the spread of target entities in India.</em>
+  </p>
 </p>
 
 ## Dataset Creation
@@ -81,6 +83,7 @@ python3 localized_text_transfer.py \
 
 `output_path`: Output file path to a JSON file to store the generations.
 
+Example:
 ```
 python3 localized_text_transfer.py \
   --model gpt-3.5-turbo \
@@ -121,15 +124,15 @@ python3 llm_evaluator.py \
   --output_path output_path
 ```
 
-- `model`: Openai model names (like gpt-4-turbo).
+`model`: Openai model names (like gpt-4-turbo).
 
-- `eval_type`: Provide QA for localized question answering, TT for localized text transfer.
+`eval_type`: Provide QA for localized question answering, TT for localized text transfer.
 
-- `eval_json_file`: File to evaluate (JSON).
+`eval_json_file`: File to evaluate (JSON).
 
-- `eval_metric`: List of metrics to evaluate. Metrics supported EC, CQ, FC.
+`eval_metric`: List of metrics to evaluate. Metrics supported EC, CQ, and FC.
 
-- `output_path`: Output file path to a JSON file to store the evaluations.
+`output_path`: Output file path to a JSON file to store the evaluations.
 
 Example:
 ```
