@@ -9,8 +9,10 @@ It can be used as a benchmark to evaluate the capabilities of LLMs in the Indian
 - Generating a localized response given a common question that can be asked across locations
 - Factuality transfer from one locale to another.
 <p align="center">
-  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/LoFTI_Illustration.png" width="600">
+  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/LoFTI_Illustration.png" width="500" alt>
+  <p align="center">
   <em>Illustrates the global distribution of the reference entities and the spread of target entities in India.</em>
+  </p>
 </p>
 
 LoFTI dataset is available in [Hugging Face](https://huggingface.co/datasets/sonasimon/LoFTI).
