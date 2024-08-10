@@ -9,7 +9,7 @@ It can be used as a benchmark to evaluate the capabilities of LLMs in the Indian
 - Generating a localized response given a common question that can be asked across locations
 - Factuality transfer from one locale to another.
 <p align="center">
-  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/LoFTI_Illustration.png" width="500" alt>
+  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_Illustration.png" width="500" alt>
   <p align="center">
   <em> Illustration of LLM’s localized factual text transfer capabilities.</em>
   </p>
@@ -42,7 +42,7 @@ print(dataset['test'][0])
 
 ## Dataset Distribution
 <p align="center">
-  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/map.png">
+  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/map.png">
   <p align="center">
     <em>The global distribution of the reference entities and the spread of target entities in India.</em>
   </p>
