@@ -86,7 +86,7 @@ Model setup:
   + Refer:  [Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF)
 - For openai models: 
   + Models used: gpt-3.5-turbo, gpt-4-turbo
-  + Upload your open-ai API key at `utils/api.py` as `OPENAI_KEY="xxxxxx"`
+  + Upload your OpenAI API key at `utils/api.py` as `OPENAI_KEY="xxxxxx"`
   + Refer: [OpenAI Models](https://platform.openai.com/docs/models), [OpenAI API](https://openai.com/api)
 
 ### Localized Text Transfer
