@@ -34,6 +34,7 @@ def get_llm_output(
         "target_location": tar_location,
         "hyperlocal_score": hyperlocality,
         "model": model,
+        "question": sample["common_questions"][ques_no],
         "target_claim_gen": target_sent,
         "reason_for_target_claim_gen": reason_for_target_sent
     }

@@ -138,7 +138,7 @@ def evaluate_entity_correctness(ref_entity, ref_loc, ref_claim, tar_claim, tar_l
             continue 
     return score, reason, entity
 
-def evaluate_common_ques_correctness(ec_score, tar_claim, tar_location, common_questions, eval_type, model):
+def evaluate_common_ques_correctness(ec_score, tar_claim, tar_location, common_questions, model):
     score_list = []
     reason_list = []
     for ques_n in common_questions.keys():
@@ -147,7 +147,7 @@ def evaluate_common_ques_correctness(ec_score, tar_claim, tar_location, common_q
         if(ec_score != 0):
             for _ in range(3):  # try 3 times
                 try:
-                    score, reason = evaluate_target_claim_by_common_ques(tar_claim, tar_location, common_questions[ques_n])
+                    score, reason = evaluate_target_claim_by_common_ques(tar_claim, tar_location, common_questions[ques_n], model)
                     break # as soon as it works, break out of the loop
                 except Exception as e:
                     print(e)
@@ -209,12 +209,19 @@ if __name__ == "__main__":
 
             # Common Question Correctness
             if('CQ' in args.eval_metric):
+                if(args.eval_type == 'QA'):
+                    try:
+                        common_qs = {"ques": item['question']}
+                    except Exception as e:
+                        print(e)
+                        exit()
+                else:
+                    common_qs = result["common_questions"]
                 c_score, c_reason = evaluate_common_ques_correctness(
                     e_score,
                     item["target_claim_gen"],
                     result["target_location"],
-                    result["common_questions"],
-                    args.eval_type,
+                    common_qs,
                     model
                 )
                 result["CQ "+ args.model+" score"] = c_score
