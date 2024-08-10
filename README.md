@@ -63,11 +63,20 @@ print(dataset['test'][0])
 To ensure the correctness of the LOFTI dataset, all the generations were carefully checked by human annotators. These annotators represent diverse demographics and have knowledge about samples from different geographic and hyperlocal regions.
 
 ## Reproducibility
-### Environment
+
+### Setup
+Create environment:
+```
+conda create -n lofti python=3.10.12
+conda activate lofti
+```
+
+Download LoFTI:
 ```
 git clone https://github.com/csalt-research/LoFTI.git
 cd LoFTI
-pip install -r requirement.txt
+pip install -r requirements.txt
+bash setup.sh
 ```
 ### Localized Text Transfer
 To do localized text transfer from a reference sentence to a target location on LoFTI dataset:
@@ -112,6 +121,16 @@ python3 localized_text_transfer.py \
   --prompt_format gpt \
   --output_path outputs/QA_gpt3.5_generation.json
 ```
+### Model setup:
+- For Mixtral-8x7B-Instruct:
+  + For setup, refer [Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF)
+  + Model used: [mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/blob/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf)
+- For Llama models: 
+  + csdc
+  + 
+- For openai models: 
+  + 
+
 
 ### LLM as a LoFTI Evaluator
 To evaluate the generations obtained for LoFTI using an LLMdo localized question answering for a given factual question and a target location on LoFTI dataset:
