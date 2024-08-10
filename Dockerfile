@@ -15,7 +15,11 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 install huggingface-hub
 RUN pip3 install datasets==2.20.0
 RUN pip3 install openai==1.39.0
- 
+
+# Copy the contents into the Docker container
+WORKDIR /app
+COPY . .
+
 # Clone the llama.cpp repository
 RUN git clone https://github.com/ggerganov/llama.cpp
 
@@ -27,6 +31,3 @@ RUN make
 
 # Install the Python bindings with CUDA support
 RUN CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
-
-# Change back to the root directory for any further commands
-WORKDIR /
