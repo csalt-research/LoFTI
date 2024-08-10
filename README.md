@@ -65,19 +65,30 @@ To ensure the correctness of the LOFTI dataset, all the generations were careful
 ## Reproducibility
 
 ### Setup
-Create environment:
-```
-conda create -n lofti python=3.10.12
-conda activate lofti
-```
 
-Download LoFTI:
 ```
 git clone https://github.com/csalt-research/LoFTI.git
 cd LoFTI
-pip install -r requirements.txt
-bash setup.sh
 ```
+Build the Docker image:
+```
+docker build -t lofti-image .
+```
+Run the Docker container with GPU support:
+```
+docker run -it --gpus all --name lofti-container lofti-image
+```
+
+Model setup:
+- For Mixtral or Llama models:
+  + Download the GGUF files at `llama.cpp/model/`.
+  + You can download the gguf files using huggingface-cli. For example: `huggingface-cli download TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf --local-dir . --local-dir-use-symlinks False`
+  + Refer:  [Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF)
+- For openai models: 
+  + Models used: gpt-3.5-turbo, gpt-4-turbo
+  + Upload your open-ai API key at `utils/api.py` as `OPENAI_KEY="xxxxxx"`
+  + Refer: [OpenAI Models](https://platform.openai.com/docs/models), [OpenAI API](https://openai.com/api)
+
 ### Localized Text Transfer
 To do localized text transfer from a reference sentence to a target location on LoFTI dataset:
 ```
@@ -121,16 +132,6 @@ python3 localized_text_transfer.py \
   --prompt_format gpt \
   --output_path outputs/QA_gpt3.5_generation.json
 ```
-### Model setup:
-- For Mixtral-8x7B-Instruct:
-  + For setup, refer [Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF)
-  + Model used: [mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/blob/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf)
-- For Llama models: 
-  + csdc
-  + 
-- For openai models: 
-  + 
-
 
 ### LLM as a LoFTI Evaluator
 To evaluate the generations obtained for LoFTI using an LLMdo localized question answering for a given factual question and a target location on LoFTI dataset:
