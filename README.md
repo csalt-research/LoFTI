@@ -57,7 +57,7 @@ print(dataset['test'][0])
 - Common questions: [TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF(Q4_K_M)](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/blob/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf)
 
 ### Dataset Creation Pipeline
-![Dataset creation pipeline](https://raw.githubusercontent.com/csalt-research/LoFTI/main/pipeline.png)
+![Dataset creation pipeline](https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/pipeline.png)
 
 ### Annotations
 To ensure the correctness of the LOFTI dataset, all the generations were carefully checked by human annotators. These annotators represent diverse demographics and have knowledge about samples from different geographic and hyperlocal regions.
