@@ -31,3 +31,5 @@ RUN make
 
 # Install the Python bindings with CUDA support
 RUN CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
+
+WORKDIR /

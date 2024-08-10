@@ -80,10 +80,12 @@ docker run -it --gpus all --name lofti-container lofti-image
 ```
 
 Model setup:
-- For Mixtral or Llama models:
-  + Download the GGUF files at `llama.cpp/models/`.
+- For GGUF files:
+  + The code supports any model in GGUF format. Download the GGUF files at `llama.cpp/models/`.
   + You can download the gguf files using huggingface-cli. For example: `huggingface-cli download TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf --local-dir . --local-dir-use-symlinks False`
-  + Refer:  [Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF)
+  + GGUF files for some models:
+    - Mixtral_8x7B: [Mixtral-8x7B-Instruct-v0.1_Q4_K_M](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/blob/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf)
+    - Llama3: [Llama-3-8B-Instruct.Q4_K_M](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf)
 - For openai models: 
   + Models used: gpt-3.5-turbo, gpt-4-turbo
   + Upload your OpenAI API key at `utils/api.py` as `OPENAI_KEY="xxxxxx"`
@@ -163,6 +165,11 @@ python3 llm_evaluator.py \
   --eval_metric ['EC', 'CQ', 'FC'] \
   --output_path outputs/TT_gpt3.5_gen_eval_gpt4_EC_CQ_FC.json
 ```
+
+## Results
+Performance of Mixtral, Llama3, GPT-3.5 and GPT-4 for localized text generation on a LOFTI subset using GPT-4 evaluations:
+
+
 
 ## Limitations
 - The dataset is designed for localization from different locations in the world to India only. In order to perform localization to regions other than in India, we will need additional annotations. This is also reserved for a future release.
