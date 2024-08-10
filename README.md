@@ -81,7 +81,7 @@ docker run -it --gpus all --name lofti-container lofti-image
 
 Model setup:
 - For Mixtral or Llama models:
-  + Download the GGUF files at `llama.cpp/model/`.
+  + Download the GGUF files at `llama.cpp/models/`.
   + You can download the gguf files using huggingface-cli. For example: `huggingface-cli download TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf --local-dir . --local-dir-use-symlinks False`
   + Refer:  [Mixtral-8x7B-Instruct-v0.1](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF)
 - For openai models: 
