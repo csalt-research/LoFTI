@@ -66,7 +66,7 @@ EVAL_THE_ENTITY_PROMPT = """Given a target location, category, possible target e
  
 1) If the target entity EXACTLY matches the provided possible target entity, provide score 2.
 2) Else if it is another POSSIBLE factually correct replacement for the possible target entity in the given target location, provide score 1. The entities should belong to the same given category and share similar properties.
-2) Else, provide score 0.
+3) Else, provide score 0.
  
 Also, provide a reason for the score.
 For example:
