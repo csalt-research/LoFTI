@@ -15,17 +15,7 @@ It can be used as a benchmark to evaluate the capabilities of LLMs in the Indian
   </p>
 </p>
 
-LoFTI dataset is available in [Hugging Face](https://huggingface.co/datasets/sonasimon/LoFTI).
-
-```python
-from datasets import load_dataset
-
-# Load the dataset from Hugging Face
-dataset = load_dataset('sonasimon/LoFTI')
-
-# Access the data
-print(dataset['test'][0])
-```
+LoFTI dataset is available in [dataset](dataset/LoFTI.jsonl) folder.
 
 ## Dataset Structure
 - Region: The region of the reference location.
