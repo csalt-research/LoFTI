@@ -15,7 +15,7 @@ It can be used as a benchmark to evaluate the capabilities of LLMs in the Indian
   </p>
 </p>
 
-LoFTI dataset is available in [dataset](dataset/LoFTI.jsonl) folder.
+LoFTI dataset is available in the [dataset](dataset/LoFTI.jsonl) folder.
 
 ## Dataset Structure
 - Region: The region of the reference location.
@@ -126,7 +126,7 @@ python3 localized_text_transfer.py \
 ```
 
 ### LLM as a LoFTI Evaluator
-To evaluate the generations obtained for LoFTI using an LLMdo localized question answering for a given factual question and a target location on LoFTI dataset:
+To evaluate the generations obtained for LoFTI using an LLMdo localized question answering for a given factual question and a target location on the LoFTI dataset:
 ```
 python3 llm_evaluator.py \
   --model model \
@@ -162,26 +162,10 @@ python3 llm_evaluator.py \
   - GPT-4 evaluation of Mixtral8x7B, Llama3, GPT-3.5, and GPT-4 for localized text transfer (TT) on LoFTI subset:
     <img src="/images/LoFTI_subset_TT_results.png">
   - GPT-4 evaluation of Mixtral8x7B for localized question answering (QA) on LoFTI:
-    <img src="/images/LoFTI_QA_results.png" width="450">
+    <img src="/images/LoFTI_QA_results.png" width="500">
 
 ## Limitations
 - The dataset is designed for localization from different locations in the world to India only. In order to perform localization to regions other than in India, we will need additional annotations. This is also reserved for a future release.
 - LoFTI is entirely in English and does not contain any multilingual localizations. It is possible to use simple translation models to translate the data but it is not robust. This is a significant extension that we also intend to explore as future work.
 - There can be several correct target entities localized to a target location which we refer to as high cardinality. High cardinality can make it hard to make the resulting evaluations precise, especially since some entities can be added in the future with respect to localization.
-
-## Citation 
-
-Please cite the following paper when using this dataset.
-
-```
-@misc{simon2024loftilocalizationfactualitytransfer,
-      title={LoFTI: Localization and Factuality Transfer to Indian Locales}, 
-      author={Sona Elza Simon and Soumen Kumar Mondal and Abhishek Singhania and Sayambhu Sen and Preethi Jyothi},
-      year={2024},
-      eprint={2407.11833},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2407.11833}, 
-}
-```
 
