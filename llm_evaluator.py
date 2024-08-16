@@ -166,9 +166,7 @@ if __name__ == "__main__":
     parser.add_argument('--output_path', type=str, required=True, help='Path to save the evaluations.')
     args = parser.parse_args()
 
-    # Load from huggingface
-    # data = load_dataset("sonasimon/LoFTI", split='test')
-    # Or load the local file
+    # Load the local file
     lofti_data = load_dataset('json', data_files={'test': 'dataset/LoFTI.jsonl'}, split='test')
 
     # Load the data to evaluate
