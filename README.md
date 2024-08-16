@@ -158,11 +158,11 @@ python3 llm_evaluator.py \
 
 ## Results
   - GPT-4 evaluation of Mixtral8x7B and GPT-4 for localized text generation on LoFTI:
-    <img src="/images/LoFTI_TT_results.png" width="500">
+    <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_TT_results.png" width="500">
   - GPT-4 evaluation of Mixtral8x7B, Llama3, GPT-3.5, and GPT-4 for localized text transfer (TT) on LoFTI subset:
-    <img src="/images/LoFTI_subset_TT_results.png">
+    <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_subset_TT_results.png">
   - GPT-4 evaluation of Mixtral8x7B for localized question answering (QA) on LoFTI:
-    <img src="/images/LoFTI_QA_results.png" width="500">
+    <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_QA_results.png" width="500">
 
 ## Limitations
 - The dataset is designed for localization from different locations in the world to India only. In order to perform localization to regions other than in India, we will need additional annotations. This is also reserved for a future release.
