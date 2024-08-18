@@ -160,7 +160,7 @@ python3 llm_evaluator.py \
   - GPT-4 evaluation of Mixtral8x7B and GPT-4 for localized text generation on LoFTI:
     <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_TT_results.png" width="500">
   - GPT-4 evaluation of Mixtral8x7B, Mixtral + RARR, Mixtral Revised, Llama3-8B, and GPT-4 for localized text transfer (TT) on LoFTI subset:
-    <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_subset_TT_results.png">
+    <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_subset_TT_results.png" width="2500">
   - GPT-4 evaluation of Mixtral8x7B for localized question answering (QA) on LoFTI:
     <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_QA_results.png" width="500">
 
