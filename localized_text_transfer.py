@@ -42,7 +42,7 @@ def llm_generation(data, model, prompt_format, output_path):
     for sample in data:
         print("Processing claim: ", sample["id"])
         outputs.append(get_llm_output(sample, model, prompt_format))
-        break
+        
     # Dump the list into the JSON file
     output_file = Path(output_path)
     output_file.parent.mkdir(exist_ok=True, parents=True)

@@ -4,7 +4,7 @@ from llama_cpp import Llama
 from prompts import llm_prompts
 from utils import api, openai_gen
 import openai
-openai.api_key  = api.OPENAI_KEY
+openai.api_key = getattr(api, "OPENAI_KEY", None)
 
 def parse_llm_response(response: str):
     """Extract target sentence from the LLM response.
@@ -42,7 +42,13 @@ def run_target_claim_generation(
         target sentence and reason
     """
 
-    openai_models = [model.id for model in openai.models.list().data]
+    openai_models = []
+    if(openai.api_key != None):
+        openai_models = [model.id for model in openai.models.list().data]
+    elif(prompt_format == 'gpt'):
+        print("API KEY NOT FOUND")
+        exit(0)
+        
     if(model in openai_models and prompt_format == 'gpt'): # for all openai model
         print("Loading model ... ", model)
         prompt = getattr(llm_prompts, prompt)

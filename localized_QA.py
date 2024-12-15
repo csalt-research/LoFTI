@@ -47,7 +47,6 @@ def llm_generation(data, model, prompt_format, output_path):
         questions = sample["common_questions"]
         for ques_no in questions.keys():
             outputs.append(get_llm_output(sample, ques_no, model, prompt_format))
-        break
 
     # Dump the list into the JSON file
     output_file = Path(output_path)
