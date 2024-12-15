@@ -98,9 +98,9 @@ python3 localized_text_transfer.py \
 Example:
 ```
 python3 localized_text_transfer.py \
-  --model gpt-3.5-turbo \
+  --model gpt-4-turbo \
   --prompt_format gpt \
-  --output_path outputs/TT_gpt3.5_generation.json
+  --output_path outputs/TT_gpt4_generation.json
 ```
 
 ### Localized Question Answering
@@ -120,9 +120,9 @@ python3 localized_QA.py \
 Example:
 ```
 python3 localized_QA.py \
-  --model gpt-3.5-turbo \
+  --model gpt-4-turbo \
   --prompt_format gpt \
-  --output_path outputs/QA_gpt3.5_generation.json
+  --output_path outputs/QA_gpt4_generation.json
 ```
 
 ### LLM as a LoFTI Evaluator
@@ -151,17 +151,17 @@ Example:
 python3 llm_evaluator.py \
   --model gpt-4-turbo \
   --eval_type TT \
-  --eval_json_file outputs/TT_gpt3.5_generation.json \
+  --eval_json_file outputs/TT_gpt4_generation.json \
   --eval_metric "['EC', 'CQ', 'FC']" \
-  --output_path outputs/TT_gpt3.5_gen_eval_gpt4_EC_CQ_FC.json
+  --output_path outputs/TT_gpt4_gen_eval_gpt4_EC_CQ_FC.json
 ```
 
 ## Results
   - GPT-4 evaluation of Mixtral8x7B and GPT-4 for localized text generation on LoFTI:
     <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_TT_results.png" width="500">
-  - GPT-4 evaluation of Mixtral8x7B, Mixtral + RARR, Mixtral Revised, Llama3-8B, and GPT-4 for localized text transfer (TT) on LoFTI subset:
+  - GPT-4 evaluation of Mixtral8x7B, Mixtral + RARR, Mixtral Revised, Llama3.3-70B, and GPT-4 for localized text transfer (TT) on LoFTI subset:
     <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_subset_TT_results.png">
-  - GPT-4 evaluation of Mixtral8x7B for localized question answering (QA) on LoFTI:
+  - GPT-4 evaluation of Mixtral8x7B for localized question answering (QA) on LoFTI subset:
     <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_QA_results.png" width="500">
 
 ## Limitations
