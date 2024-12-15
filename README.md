@@ -75,7 +75,7 @@ Model setup:
   + You can download the gguf files using huggingface-cli. For example: `huggingface-cli download TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf --local-dir . --local-dir-use-symlinks False`
   + GGUF files for some models:
     - Mixtral_8x7B: [Mixtral-8x7B-Instruct-v0.1_Q4_K_M](https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/blob/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf)
-    - Llama3: [Llama-3-8B-Instruct.Q4_K_M](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/blob/main/Meta-Llama-3-8B-Instruct.Q4_K_M.gguf)
+    - Llama3.3-70B: [Llama-3.3-70B-Instruct](https://huggingface.co/bartowski/Llama-3.3-70B-Instruct-GGUF/blob/main/Llama-3.3-70B-Instruct-Q4_K_M.gguf)
 - For openai models: 
   + Models used: gpt-3.5-turbo, gpt-4-turbo
   + Upload your OpenAI API key at `utils/api.py` as `OPENAI_KEY="xxxxxx"`
@@ -119,7 +119,7 @@ python3 localized_QA.py \
 
 Example:
 ```
-python3 localized_text_transfer.py \
+python3 localized_QA.py \
   --model gpt-3.5-turbo \
   --prompt_format gpt \
   --output_path outputs/QA_gpt3.5_generation.json
@@ -132,7 +132,7 @@ python3 llm_evaluator.py \
   --model model \
   --eval_type eval_type \
   --eval_json_file eval_json_file \
-  --eval_metric ['eval_metric1', 'eval_metric2'] \
+  --eval_metric "['eval_metric1', 'eval_metric2']" \
   --output_path output_path
 ```
 
@@ -152,7 +152,7 @@ python3 llm_evaluator.py \
   --model gpt-4-turbo \
   --eval_type TT \
   --eval_json_file outputs/TT_gpt3.5_generation.json \
-  --eval_metric ['EC', 'CQ', 'FC'] \
+  --eval_metric "['EC', 'CQ', 'FC']" \
   --output_path outputs/TT_gpt3.5_gen_eval_gpt4_EC_CQ_FC.json
 ```
 
