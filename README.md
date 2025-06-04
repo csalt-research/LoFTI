@@ -17,6 +17,12 @@ It can be used as a benchmark to evaluate the capabilities of LLMs in the Indian
 
 LoFTI dataset is available in the [dataset](dataset/LoFTI.jsonl) folder.
 
+LoFTI dataset is also available at [HuggingFace](https://huggingface.co/datasets/sonasimon/LoFTI).
+```
+from datasets import load_dataset
+
+ds = load_dataset("sonasimon/LoFTI")
+```
 ## Dataset Structure
 - Region: The region of the reference location.
 - Category: The category of the entity in the factual text.
@@ -32,7 +38,7 @@ LoFTI dataset is available in the [dataset](dataset/LoFTI.jsonl) folder.
 
 ## Dataset Distribution
 <p align="center">
-  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/map.png">
+  <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/map.pdf">
   <p align="center">
     <em>The global distribution of the reference entities and the spread of target entities in India.</em>
   </p>
@@ -165,7 +171,24 @@ python3 llm_evaluator.py \
     <img src="https://raw.githubusercontent.com/csalt-research/LoFTI/main/images/LoFTI_QA_results.png" width="500">
 
 ## Limitations
-- The dataset is designed for localization from different locations in the world to India only. In order to perform localization to regions other than in India, we will need additional annotations. This is also reserved for a future release.
+The main limitations of the current benchmark are detailed below:
+- GPT-4 is not good at identifying hyperlocal entities and facts about them. Hence, it cannot be used to reliably evaluate whether or not the localization produced is correct. Thus, there is still a need for human evaluators to check whether the localization produced is correct or not. We hope that expanding the possible target entities will help eventually mitigate the need for human evaluators to check for correctness. This is something that we plan to eventually add to our dataset in the near future.
+- There can be several correct target entities localized to a target location which we refer to as high cardinality. High cardinality can make it hard to make the resulting evaluations precise, especially since some entities can be added in the future with respect to localization. 
+- This dataset consists only of factual data. However, localization can take place with respect to actions as well. For example, suppose we are localizing a conversation between a human and a shopkeeper about a special dinner. In the west, this typically would include conversations about buying steaks, lobsters etc. while in India, the conversation would likely be more about buying spices, rice and chicken. This is a broader style of localization that we intend to explore further as future work.
+- The dataset is designed for localization from different locations in the world to regions in India. In order to perform localization to regions other than in India, we will need additional annotations. This is also reserved for a future release.
 - LoFTI is entirely in English and does not contain any multilingual localizations. It is possible to use simple translation models to translate the data but it is not robust. This is a significant extension that we also intend to explore as future work.
-- There can be several correct target entities localized to a target location which we refer to as high cardinality. High cardinality can make it hard to make the resulting evaluations precise, especially since some entities can be added in the future with respect to localization.
+
+
+## Citation
+```
+@misc{simon2024loftilocalizationfactualitytransfer,
+      title={LoFTI: Localization and Factuality Transfer to Indian Locales}, 
+      author={Sona Elza Simon and Soumen Kumar Mondal and Abhishek Singhania and Sayambhu Sen and Preethi Jyothi},
+      year={2024},
+      eprint={2407.11833},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2407.11833}, 
+}
+```
 
