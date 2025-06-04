@@ -1,9 +1,17 @@
-# LoFTI: Localization and Factuality Transfer to Indian Locales
 
-This repository contains the dataset and code of LoFTI.
+<h1 align="center">
+  LoFTI: Localization and Factuality Transfer to Indian Locales
+</h1>
+<h4 align="center">
+  Sona Elza Simon, Soumen Kumar Mondal, Abhishek Singhania, Sayambhu Sen, Preethi Jyothi
+</h4>
+
+<p align="center">
+  <em> Accepted at ACL Findings 2025.</em>
+</p>
 
 ## Overview
-LoFTI is an evaluation benchmark spanning multiple geographical locales that can be used to test the localization and factual transfer abilities of LLMs.
+This repository contains the dataset and code of LoFTI. LoFTI is an evaluation benchmark spanning multiple geographical locales that can be used to test the localization and factual transfer abilities of LLMs.
 
 It can be used as a benchmark to evaluate the capabilities of LLMs in the Indian context. 
 - Generating a localized response given a common question that can be asked across locations
