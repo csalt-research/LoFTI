@@ -189,14 +189,20 @@ The main limitations of the current benchmark are detailed below:
 
 ## Citation
 ```
-@misc{simon2024loftilocalizationfactualitytransfer,
-      title={LoFTI: Localization and Factuality Transfer to Indian Locales}, 
-      author={Sona Elza Simon and Soumen Kumar Mondal and Abhishek Singhania and Sayambhu Sen and Preethi Jyothi},
-      year={2024},
-      eprint={2407.11833},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2407.11833}, 
+@inproceedings{simon-etal-2025-lofti,
+    title = "{L}o{FTI}: Localization and Factuality Transfer to {I}ndian Locales",
+    author = "Simon, Sona Elza  and
+      Mondal, Soumen Kumar  and
+      Singhania, Abhishek  and
+      Sen, Sayambhu  and
+      Jyothi, Preethi",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2025",
+    month = jul,
+    year = "2025",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-acl.854/",
+    pages = "16635--16662",
+    ISBN = "979-8-89176-256-5"
 }
 ```
 
